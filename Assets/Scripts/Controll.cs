@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Controll : MonoBehaviour
+public class Controll : NetworkBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody2D rb2d;
@@ -10,7 +11,7 @@ public class Controll : MonoBehaviour
     public Camera cam;
 
     Vector2 movement;
-    Vector2 mousePos;
+    public Vector2 mousePos;
     
    
     void FixedUpdate()
@@ -23,10 +24,15 @@ public class Controll : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    { 
+        if(!isLocalPlayer)
     {
+        return;
+    }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
+    
 }

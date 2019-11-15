@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 1568648924510422739}
   - component: {fileID: 1568648924510422736}
   - component: {fileID: 2939841286160971917}
+  - component: {fileID: 5658011237291751066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -343,6 +344,7 @@ MonoBehaviour:
   rb2d: {fileID: 1568648924510422735}
   moveSpeed: 5
   cam: {fileID: 4369116194167639265, guid: 22bc82e7d4c7448c3ab933ccaceb9dc7, type: 3}
+  mousePos: {x: 0, y: 0}
 --- !u!50 &1568648924510422735
 Rigidbody2D:
   serializedVersion: 4
@@ -351,7 +353,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568648924510422734}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -404,7 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1568648924088834467}
   damage: 10
-  lineRenderer: {fileID: 1568648924239488283}
+  bullet: {fileID: 6432065353669163575, guid: 64c47596832e1472888c41f6f12c4e8f, type: 3}
+  speed: 22
 --- !u!114 &2939841286160971917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,3 +441,25 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &5658011237291751066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568648924510422734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fa38f5d4ea44bc48b97d2edab81331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1568648924510422738}
+  SendRate: 2
+  movementThreshold: 0.2
+  angleThreshold: 5
+  distanceBeforeSnap: 4
+  angleBeforeSnap: 40
+  movementInterpolation: 0.1
+  rotationInterpolation: 0.1
+  thresholdMovementPrediction: 0.7
+  thresholdRotationPrediction: 15
